@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Structural.Adapter;
 using Structural.bridge;
+using Structural.decorator;
 
 Console.WriteLine("Hello, World!");
 
@@ -25,4 +26,8 @@ creditcardStrip.MakePayment(10);
 PaymentMethod creditcardpaypal = new CreditCardMethod(paypal);
 paypal.MakePayment(10);
 
+var file = new FileSystem();
+var encryptedFile = new EncryptFile(file);
+var logFile = new LogFile(encryptedFile);
+//compressed similar
 // bridge ends
